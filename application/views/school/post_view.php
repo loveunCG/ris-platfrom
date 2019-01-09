@@ -1,244 +1,207 @@
 
+<link href="<?= base_url() ?>assets/css/todo-2.min.css" rel="stylesheet" type="text/css" />
 <div class="page-content-wrapper">
-                <!-- BEGIN CONTENT BODY -->
-                <div class="page-content">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12">
-                            <div class="portlet light ">
-                                <div class="portlet-title tabbable-line">
-                                    <div class="caption">
-                                        <i class="icon-bubbles font-dark hide"></i>
-                                        <span class="caption-subject font-dark bold uppercase">我发起的论点</span>
+    <div class="page-content">
+        <h3 class="page-title">
+            <?=$menutitle?>
+        </h3>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <i class="icon-home"></i>
+                    <a href="/">
+                        <?=$menutitle?>
+                    </a>
+                    <i class="fa fa-angle-right"></i>
+                </li>
+                <li>
+                    <span>我发起的论点</span>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="todo-content">
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <span class="glyphicon glyphicon-send"> </span>
+                                <span class="caption-subject font-green-sharp bold uppercase">我发表的评论</span>
+                            </div>
+
+                        </div>
+                        <!-- end PROJECT HEAD -->
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-md-5 col-sm-4">
+                                    <div class="todo-tasklist">
+                                        <?php foreach ($my_post_Info as $value): ?>
+                                            <div class="todo-tasklist-item todo-tasklist-item-border-blue">
+                                                <img class="todo-userpic pull-left" src="<?=base_url()?>assets/layouts/layout2/img/avatar3.jpg" width="32px" height="32px">
+                                                <div class="todo-tasklist-item-title">
+                                                    <?=$value->pst_title?>
+                                                </div>
+                                                <div class="todo-tasklist-item-text">
+                                                    <?=$value->pst_content?>
+                                                </div>
+                                                <div class="todo-tasklist-controls pull-left">
+												<span class="todo-tasklist-date">
+													<i class="fa fa-calendar"></i>
+                                                    <?=$value->pst_time?>
+												</span>
+                                                    <span class="todo-tasklist-badge badge badge-roundless">论点</span>
+                                                </div>
+                                            </div>
+                                        <?php endforeach;?>
                                     </div>
-                                    <ul class="nav nav-tabs">
-                                        <li class="active">
-                                            <a href="#portlet_comments_1" data-toggle="tab"> 发送 </a>
-                                        </li>
-                                        <li>
-                                            <a href="#portlet_comments_2" data-toggle="tab"> 接收 </a>
-                                        </li>
-                                    </ul>
                                 </div>
-                                <div class="portlet-body">
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="portlet_comments_1">
-                                            <!-- BEGIN: Comments -->
-                                            <div class="mt-comments">
-                                                <div class="mt-comment">
-                                                    <div class="mt-comment-img">
-                                                        <img src="../assets/pages/media/users/avatar1.jpg" /> </div>
-                                                    <div class="mt-comment-body">
-                                                        <div class="mt-comment-info">
-                                                            <span class="mt-comment-author">Michael Baker</span>
-                                                            <span class="mt-comment-date">26 Feb, 10:30AM</span>
-                                                        </div>
-                                                        <div class="mt-comment-text"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. </div>
-                                                        <div class="mt-comment-details">
-                                                            <span class="mt-comment-status mt-comment-status-pending">Pending</span>
-                                                            <ul class="mt-comment-actions">
-                                                                <li>
-                                                                    <a href="#">Quick Edit</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">View</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">Delete</a>
-                                                                </li>
+                                <div class="col-md-7 col-sm-8">
+                                    <form action="#" class="form-horizontal">
+                                        <div class="tabbable-line">
+                                            <ul class="nav nav-tabs ">
+                                                <li class="active">
+                                                    <a href="#tab_1" data-toggle="tab"> 我的评论 </a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="tab_1">
+                                                    <!-- TASK COMMENTS -->
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <ul class="media-list">
+                                                                <?php foreach ($all_post_Info as $value):
+                                                                    $src = $this->session->userdata('id') == $value->pst_doctor ? 'assets/layouts/layout2/img/avatar3.jpg':'assets/pages/media/users/avatar2.jpg';
+
+                                                                    ?>
+                                                                    <li class="media">
+                                                                        <a class="pull-left" href="javascript:;">
+                                                                            <img class="todo-userpic" src="<?=base_url().$src?>" width="32px" height="32px"> </a>
+                                                                        <div class="media-body todo-comment">
+                                                                            <button type="button" class="todo-comment-btn btn btn-circle btn-default btn-sm">再评论</button>
+                                                                            <p class="todo-comment-head">
+																			<span class="todo-comment-username">
+																				<?=$value->pst_title?>
+																			</span> &nbsp;
+                                                                                <span class="todo-comment-date">
+																				<?=$value->pst_time?>
+																			</span>
+                                                                            </p>
+                                                                            <p class="todo-text-color">
+                                                                                <?=$value->pst_content?>
+                                                                            </p>
+                                                                            <!-- Nested media object -->
+                                                                            <?php foreach ($my_comment_Info as $cmtData):
+                                                                                if($cmtData->cmt_pst_id == $value->post_id):
+                                                                                    ?>
+                                                                                    <div class="media">
+                                                                                        <a class="pull-left" href="javascript:;">
+                                                                                            <img class="todo-userpic" src="<?=base_url()?>assets/pages/media/users/avatar<?=rand(1,10)?>.jpg" width="27px" height="27px"> </a>
+                                                                                        <div class="media-body">
+                                                                                            <p class="todo-comment-head">
+																					<span class="todo-comment-username">
+																					</span> &nbsp;
+                                                                                                <span class="todo-comment-date">
+																						<?=$cmtData->cmt_time?>
+																					</span>
+                                                                                            </p>
+                                                                                            <p class="todo-text-color">
+                                                                                                <?=$cmtData->cmt_content?>
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                <?php  endif;
+                                                                            endforeach;?>
+                                                                        </div>
+                                                                    </li>
+                                                                <?php endforeach;?>
                                                             </ul>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="mt-comment">
-                                                    <div class="mt-comment-img">
-                                                        <img src="../assets/pages/media/users/avatar6.jpg" /> </div>
-                                                    <div class="mt-comment-body">
-                                                        <div class="mt-comment-info">
-                                                            <span class="mt-comment-author">Larisa Maskalyova</span>
-                                                            <span class="mt-comment-date">12 Feb, 08:30AM</span>
-                                                        </div>
-                                                        <div class="mt-comment-text"> It is a long established fact that a reader will be distracted. </div>
-                                                        <div class="mt-comment-details">
-                                                            <span class="mt-comment-status mt-comment-status-rejected">Rejected</span>
-                                                            <ul class="mt-comment-actions">
-                                                                <li>
-                                                                    <a href="#">Quick Edit</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">View</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">Delete</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="mt-comment">
-                                                    <div class="mt-comment-img">
-                                                        <img src="../assets/pages/media/users/avatar8.jpg" /> </div>
-                                                    <div class="mt-comment-body">
-                                                        <div class="mt-comment-info">
-                                                            <span class="mt-comment-author">Natasha Kim</span>
-                                                            <span class="mt-comment-date">19 Dec,09:50 AM</span>
-                                                        </div>
-                                                        <div class="mt-comment-text"> The generated Lorem or non-characteristic Ipsum is therefore or non-characteristic. </div>
-                                                        <div class="mt-comment-details">
-                                                            <span class="mt-comment-status mt-comment-status-pending">Pending</span>
-                                                            <ul class="mt-comment-actions">
-                                                                <li>
-                                                                    <a href="#">Quick Edit</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">View</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">Delete</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-comment">
-                                                    <div class="mt-comment-img">
-                                                        <img src="../assets/pages/media/users/avatar4.jpg" /> </div>
-                                                    <div class="mt-comment-body">
-                                                        <div class="mt-comment-info">
-                                                            <span class="mt-comment-author">Sebastian Davidson</span>
-                                                            <span class="mt-comment-date">10 Dec, 09:20 AM</span>
-                                                        </div>
-                                                        <div class="mt-comment-text"> The standard chunk of Lorem or non-characteristic Ipsum used since the 1500s or non-characteristic. </div>
-                                                        <div class="mt-comment-details">
-                                                            <span class="mt-comment-status mt-comment-status-rejected">Rejected</span>
-                                                            <ul class="mt-comment-actions">
-                                                                <li>
-                                                                    <a href="#">Quick Edit</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">View</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">Delete</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <!-- END TASK COMMENT FORM -->
                                             </div>
-                                            <!-- END: Comments -->
                                         </div>
-                                        <div class="tab-pane" id="portlet_comments_2">
-                                            <!-- BEGIN: Comments -->
-                                            <div class="mt-comments">
-                                                <div class="mt-comment">
-                                                    <div class="mt-comment-img">
-                                                        <img src="../assets/pages/media/users/avatar4.jpg" /> </div>
-                                                    <div class="mt-comment-body">
-                                                        <div class="mt-comment-info">
-                                                            <span class="mt-comment-author">Michael Baker</span>
-                                                            <span class="mt-comment-date">26 Feb, 10:30AM</span>
-                                                        </div>
-                                                        <div class="mt-comment-text"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy. </div>
-                                                        <div class="mt-comment-details">
-                                                            <span class="mt-comment-status mt-comment-status-approved">Approved</span>
-                                                            <ul class="mt-comment-actions">
-                                                                <li>
-                                                                    <a href="#">Quick Edit</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">View</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">Delete</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-comment">
-                                                    <div class="mt-comment-img">
-                                                        <img src="../assets/pages/media/users/avatar8.jpg" /> </div>
-                                                    <div class="mt-comment-body">
-                                                        <div class="mt-comment-info">
-                                                            <span class="mt-comment-author">Larisa Maskalyova</span>
-                                                            <span class="mt-comment-date">12 Feb, 08:30AM</span>
-                                                        </div>
-                                                        <div class="mt-comment-text"> It is a long established fact that a reader will be distracted by. </div>
-                                                        <div class="mt-comment-details">
-                                                            <span class="mt-comment-status mt-comment-status-approved">Approved</span>
-                                                            <ul class="mt-comment-actions">
-                                                                <li>
-                                                                    <a href="#">Quick Edit</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">View</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">Delete</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-comment">
-                                                    <div class="mt-comment-img">
-                                                        <img src="../assets/pages/media/users/avatar6.jpg" /> </div>
-                                                    <div class="mt-comment-body">
-                                                        <div class="mt-comment-info">
-                                                            <span class="mt-comment-author">Natasha Kim</span>
-                                                            <span class="mt-comment-date">19 Dec,09:50 AM</span>
-                                                        </div>
-                                                        <div class="mt-comment-text"> The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. </div>
-                                                        <div class="mt-comment-details">
-                                                            <span class="mt-comment-status mt-comment-status-approved">Approved</span>
-                                                            <ul class="mt-comment-actions">
-                                                                <li>
-                                                                    <a href="#">Quick Edit</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">View</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">Delete</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-comment">
-                                                    <div class="mt-comment-img">
-                                                        <img src="../assets/pages/media/users/avatar1.jpg" /> </div>
-                                                    <div class="mt-comment-body">
-                                                        <div class="mt-comment-info">
-                                                            <span class="mt-comment-author">Sebastian Davidson</span>
-                                                            <span class="mt-comment-date">10 Dec, 09:20 AM</span>
-                                                        </div>
-                                                        <div class="mt-comment-text"> The standard chunk of Lorem Ipsum used since the 1500s </div>
-                                                        <div class="mt-comment-details">
-                                                            <span class="mt-comment-status mt-comment-status-approved">Approved</span>
-                                                            <ul class="mt-comment-actions">
-                                                                <li>
-                                                                    <a href="#">Quick Edit</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">View</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">Delete</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- END: Comments -->
-                                        </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        </div>
+                    </div>
                 </div>
-                <!-- END CONTENT BODY -->
+                <!-- END TODO CONTENT -->
             </div>
+        </div>
+        <!-- END PAGE CONTENT-->
+    </div>
+</div>
+<script>
+    function delect_post(val) {
 
+        $.confirm({
+            title: '警告!',
+            content: '您真删除该论点?',
+            typeAnimated: true,
+            theme: 'light',
+            columnClass: 'small',
+            draggable: true,
+            buttons: {
+                OK: {
+                    text: '确定',
+                    action: function () {
+                        var base_url = '<?= base_url() ?>';
+                        var strURL = base_url + "school/deletePost/"+val;
+                        $.ajax({
+                            dataType: "json",
+                            url: strURL,
+                            success: function(response){
+                                if (response.status == 'success'){
+                                    $.alert({
+                                        icon: 'fa fa-warning',
+                                        title: '提示!',
+                                        closeIcon: true,
+                                        theme: 'bootstrap',
+                                        columnClass: 'small',
+                                        content: '已删除了！',
+                                        draggable: true,
+                                        animation: 'zoom',
+                                        closeAnimation: 'scale',
+                                        buttons: {
+                                            ok: function () {
+                                                window.location.reload();
+                                            }
+                                        }
+                                    });
+                                }else{
+                                    $.alert({
+                                        icon: 'fa fa-warning',
+                                        title: '提示!',
+                                        closeIcon: true,
+                                        theme: 'bootstrap',
+                                        columnClass: 'small',
+                                        content: '失败发布了！',
+                                        draggable: true,
+                                        animation: 'zoom',
+                                        closeAnimation: 'scale'
+                                    });
+                                }
+                                return true;
+                            }
+                        });
+
+
+                    }
+                },
+                somethingElse: {
+                    text: '返回',
+                    keys: ['enter', 'shift'],
+                    action: function () {
+                        return true;
+
+                    }
+                }
+            }
+        });
+
+
+    }
+</script>

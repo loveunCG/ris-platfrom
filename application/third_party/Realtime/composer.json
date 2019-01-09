@@ -1,0 +1,11 @@
+{
+  "require":{
+    "cboden/ratchet" : "0.3.*",
+    "joshcam/mysqli-database-class": "dev-master"
+  },
+  "autoload":{
+    "psr-4": {
+      "Chat\\" : "bin/src/"
+    }
+  }
+}

@@ -39,3 +39,12 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
+
+define('DEF_CONST', 				0);
+define('ASSETS',                  	'assets/');
+
+/** WEBSOCKETS BROADCAST TYPES **/
+
+define("POST",					"post");
+define("BROADCAST_URL",			"127.0.0.1");
+define("BROADCAST_PORT",		"2000");

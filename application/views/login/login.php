@@ -1,228 +1,481 @@
 <!DOCTYPE html>
-<!--
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
-Version: 4.5.6
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
--->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
-<!-- BEGIN HEAD -->
+<html lang="utf-8">
 
 <head>
-    <meta charset="utf-8" />
-    <title>
-        <?=$this->lang->line('login_title')?>
-    </title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="" name="description" />
-    <meta content="" name="author" />
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
-    <link href="<?=base_url()?>assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="<?=base_url()?>assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
-    <link href="<?=base_url()?>assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?=base_url()?>assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
-    <!-- END GLOBAL MANDATORY STYLES -->
-    <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <link href="<?=base_url()?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?=base_url()?>assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <!-- END PAGE LEVEL PLUGINS -->
-    <!-- BEGIN THEME GLOBAL STYLES -->
-    <link href="<?=base_url()?>assets/global/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css"/>
-    <link href="<?=base_url()?>assets/global/css/plugins-md.min.css" rel="stylesheet" type="text/css" />
-    <!-- END THEME GLOBAL STYLES -->
-    <!-- BEGIN PAGE LEVEL STYLES -->
-    <link href="<?=base_url()?>assets/pages/css/login-4.min.css" rel="stylesheet" type="text/css" />
-    <!-- END PAGE LEVEL STYLES -->
-    <!-- BEGIN THEME LAYOUT STYLES -->
-    <!-- END THEME LAYOUT STYLES -->
-    <link rel="shortcut icon" href="favicon.ico" /> </head>
-<!-- END HEAD -->
+	<meta charset="utf-8" />
+	<title>
+		<?=$this->lang->line('login_title')?>
+	</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<link rel="icon" href="<?=base_url()?>/assets/images/favicon.png" sizes="32x32">
+	<link href="<?=base_url()?>assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"
+	/>
+	<link href="<?=base_url()?>assets/global/css/jquery-confirm.min.css" rel="stylesheet" type="text/css" />
+	<link href="<?=base_url()?>assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"
+	/>
+	<link href="<?=base_url()?>assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="<?=base_url()?>assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"
+	/>
+	<link href="<?=base_url()?>assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+	<link href="<?=base_url()?>assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css"
+	/>
+	<link href="<?=base_url()?>assets/global/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css"
+	/>
+	<link href="<?=base_url()?>assets/pages/css/login-4.min.css" rel="stylesheet" type="text/css" />
 
-<body class=" login">
-    <!-- BEGIN LOGO -->
-    <div class="logo">
-      </div>
-    <!-- END LOGO -->
-    <!-- BEGIN LOGIN -->
-    <div class="content" style="margin-top: 10%;">
-        <!-- BEGIN LOGIN FORM -->
-        <form class="login-form" action="<?=base_url()?>login/check_user" method="post">
-            <h1 class="form-title">云平台登录 &nbsp;<i class="fa fa-key"></i></h1>
-            <?php if ($login_status=='error') {?>
-              <div class="alert alert-danger">
-                  <button class="close" data-close="alert"></button>
-                  <span> <?=$error_content?> </span>
-              </div>
-            <?php }else{
-              ?>
-              <div class="alert alert-danger display-hide">
-                  <button class="close" data-close="alert"></button>
-                  <span> 请输入用户名和密码 </span>
-              </div>
-              <?php
+	<body class=" login">
+		<div class="logo">
+		</div>
+		<div class="content" style="margin-top: 5%;">
+			<form class="login-form" action="<?=base_url()?>login/check_user" method="post">
+				<h2 class="form-title">云平台登录 &nbsp;
+					<i class="fa fa-key"></i>
+				</h2>
+				<?php if ($login_status == 'error') {
+    ?>
+				<div class="alert alert-danger">
+						<button class="close" data-close="alert"></button>
+						<span><?=$error_content?>	</span>
+				</div>
+			  <?php
+} else {
+        ?>
+							<div class="alert alert-danger display-hide">
+								<button class="close" data-close="alert"></button>
+								<span> 请输入用户名和密码 </span>
+							</div>
+			  <?php
+    } ?>
+				<div class="form-group">
+					<div class="input-group input-group">
+						<span class="input-group-btn btn-left">
+							<button class="btn blue-madison" disabled type="button">用户名</button>
+						</span>
+						<div class="input-group-control">
+							<input type="text" class="form-control input" name="username" placeholder="用户名">
+							<div class="form-control-focus"> </div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group input-group">
+						<span class="input-group-btn btn-left">
+							<button class="btn blue-madison" disabled type="button">密码&nbsp;&nbsp;&nbsp;</button>
+						</span>
+						<div class="input-group-control">
+							<input type="password" class="form-control input" placeholder="密码" name="password">
+							<div class="form-control-focus"> </div>
+						</div>
+					</div>
+				</div>
+				<div class="form-actions">
+					<div class="pull-right">
+						<button type="submit" class="btn btn-circle blue"> 登录 </button>
+						<button type="button" id="register-btn" class="btn-circle btn green">注册</button>
+					</div>
+				</div>
+				<div class="forget-password">
+					<h4>忘记密码了吗 ？</h4>
+					<p> 不用担心 请点击
+						<a href="javascript:;" id="forget-password"> 这里 </a> 重置您的密码 </p>
+				</div>
+			</form>
+			<form class="forget-form" id="forgetPassword" action="#" method="post">
+				<h3>忘记密码 ？</h3>
+				<p> </p>
+				<div class="form-group">
+					<label class="control-label visible-ie8 visible-ie9">手机号</label>
+					<div class="input-icon">
+						<i class="fa fa-mobile-phone"></i>
+						<input class="form-control placeholder-no-fix" type="text" placeholder="手机号" name="username" id="fusername" /> </div>
+					<span id="fusernameInput-error"></span>
 
-            } ?>
-            <div class="form-group">
-                <div class="input-group input-group-lg">
-                    <span class="input-group-btn btn-left">
-                      <button class="btn blue-madison" disabled type="button">用户名</button>
-                    </span>
-                    <div class="input-group-control">
-                        <input type="text" class="form-control input-lg" name="username" placeholder="用户名">
-                        <div class="form-control-focus"> </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group input-group-lg">
-                    <span class="input-group-btn btn-left">
-                      <button class="btn blue-madison" disabled type="button">密码&nbsp;&nbsp;&nbsp;</button>
-                    </span>
-                    <div class="input-group-control">
-                        <input type="password" class="form-control input-lg" placeholder="密码" name="password">
-                        <div class="form-control-focus"> </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-actions" style="margin-bottom: 10%">
-                <button type="submit" class="btn btn-circle  btn-lg blue pull-right"> 登录 </button>
-            </div>
-        </form>
-        <!-- END LOGIN FORM -->
-        <!-- BEGIN FORGOT PASSWORD FORM -->
-        <form class="forget-form" action="index.html" method="post">
-            <h3>Forget Password ?</h3>
-            <p> Enter your e-mail address below to reset your password. </p>
-            <div class="form-group">
-                <div class="input-icon">
-                    <i class="fa fa-envelope"></i>
-                    <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" name="email" />                    </div>
-            </div>
-            <div class="form-actions">
-                <button type="button" id="back-btn" class="btn red btn-outline">Back </button>
-                <button type="submit" class="btn green pull-right"> Submit </button>
-            </div>
-        </form>
-        <!-- END FORGOT PASSWORD FORM -->
-        <!-- BEGIN REGISTRATION FORM -->
-        <form class="register-form" action="index.html" method="post">
-            <h3>Sign Up</h3>
-            <p> Enter your personal details below: </p>
-            <div class="form-group">
-                <label class="control-label visible-ie8 visible-ie9">Full Name</label>
-                <div class="input-icon">
-                    <i class="fa fa-font"></i>
-                    <input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="fullname" />                    </div>
-            </div>
-            <div class="form-group">
-                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                <label class="control-label visible-ie8 visible-ie9">Email</label>
-                <div class="input-icon">
-                    <i class="fa fa-envelope"></i>
-                    <input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email" /> </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label visible-ie8 visible-ie9">Address</label>
-                <div class="input-icon">
-                    <i class="fa fa-check"></i>
-                    <input class="form-control placeholder-no-fix" type="text" placeholder="Address" name="address" /> </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label visible-ie8 visible-ie9">City/Town</label>
-                <div class="input-icon">
-                    <i class="fa fa-location-arrow"></i>
-                    <input class="form-control placeholder-no-fix" type="text" placeholder="City/Town" name="city" /> </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label visible-ie8 visible-ie9">Country</label>
-                <select name="country" id="country_list" class="select2 form-control">
-                        <option value="ZW">Zimbabwe</option>
-                    </select>
-            </div>
-            <p> Enter your account details below: </p>
-            <div class="form-group">
-                <label class="control-label visible-ie8 visible-ie9">Username</label>
-                <div class="input-icon">
-                    <i class="fa fa-user"></i>
-                    <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" />                    </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label visible-ie8 visible-ie9">Password</label>
-                <div class="input-icon">
-                    <i class="fa fa-lock"></i>
-                    <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password"
-                        name="password" /> </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
-                <div class="controls">
-                    <div class="input-icon">
-                        <i class="fa fa-check"></i>
-                        <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword"
-                        /> </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="mt-checkbox mt-checkbox-outline">
-                        <input type="checkbox" name="remember" value="1" />
-                        <input type="checkbox" name="tnc" /> I agree to the
-                        <a href="javascript:;">Terms of Service </a> &
-                        <a href="javascript:;">Privacy Policy </a>
-                        <span></span>
-                    </label>
-                <div id="register_tnc_error"> </div>
-            </div>
-            <div class="form-actions">
-                <button id="register-back-btn" type="button" class="btn red btn-outline"> Back </button>
-                <button type="submit" id="register-submit-btn" class="btn green pull-right"> Sign Up </button>
-            </div>
-        </form>
-        <!-- END REGISTRATION FORM -->
-    </div>
-    <!-- END LOGIN -->
-    <!-- BEGIN COPYRIGHT -->
-    <div class="copyright"> 2017 &copy; 杭州健培科技有限公司 </div>
-    <!-- END COPYRIGHT -->
-    <!--[if lt IE 9]>
-<script src="<?=base_url()?>assets/global/plugins/respond.min.js"></script>
-<script src="<?=base_url()?>assets/global/plugins/excanvas.min.js"></script>
-<![endif]-->
-    <!-- BEGIN CORE PLUGINS -->
-    <script src="<?=base_url()?>assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-    <script src="<?=base_url()?>assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="<?=base_url()?>assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
-    <script src="<?=base_url()?>assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-    <script src="<?=base_url()?>assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-    <script src="<?=base_url()?>assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-    <script src="<?=base_url()?>assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
-    <!-- END CORE PLUGINS -->
-    <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script src="<?=base_url()?>assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-    <script src="<?=base_url()?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
-    <script src="<?=base_url()?>assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
-    <script src="<?=base_url()?>assets/global/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
-    <!-- END PAGE LEVEL PLUGINS -->
-    <!-- BEGIN THEME GLOBAL SCRIPTS -->
-    <script src="<?=base_url()?>assets/global/scripts/app.min.js" type="text/javascript"></script>
-    <!-- END THEME GLOBAL SCRIPTS -->
-    <!-- BEGIN PAGE LEVEL SCRIPTS -->
-    <script src="<?=base_url()?>assets/pages/scripts/login-4.min.js" type="text/javascript"></script>
-    <!-- END PAGE LEVEL SCRIPTS -->
-    <!-- BEGIN THEME LAYOUT SCRIPTS -->
-    <!-- END THEME LAYOUT SCRIPTS -->
-</body>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-8 col-sm-12">
+						<label class="control-label visible-ie8 visible-ie9">验证码</label>
+						<div class="input-icon">
+							<i class="fa fa-check-square-o"></i>
+							<input class="form-control placeholder-no-fix" type="text" placeholder="验证码" name="VerificationNum" id="Verification" />
+						</div>
+					</div>
+					<div class="form-group col-md-4 col-sm-12">
+						<input type="button" id="GetVerificationForgetbtn" class="btn green" value="获取验证码 " />
+					</div>
 
+				</div>
+				<div class="row">
+					<div class="col-md-6 form-group">
+						<label class="control-label visible-ie8 visible-ie9">密码</label>
+						<div class="input-icon">
+							<i class="fa fa-lock"></i>
+							<input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="forget_password" placeholder="密码" name="password"
+							/> </div>
+					</div>
+					<div class="form-group col-md-6">
+						<label class="control-label visible-ie8 visible-ie9">确认密码</label>
+						<div class="controls">
+							<div class="input-icon">
+								<i class="fa fa-check"></i>
+								<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="确认密码" name="rfpassword" /> </div>
+						</div>
+					</div>
+				</div>
+				<div class="form-actions">
+					<button type="button" id="back-btn" class="btn red btn-outline">返回</button>
+					<button type="button" class="btn green pull-right" id="ChangePassword_btn"> 修改密码 </button>
+				</div>
+			</form>
+			<form class="register-form" id="register_form" method="post">
+				<h3>
+					<span class="glyphicon glyphicon-user"> </span> &nbsp;用户注册</h3>
+				<div class="form-group">
+					<label class="control-label visible-ie8 visible-ie9">姓名：</label>
+					<div class="input-icon">
+						<i class="fa fa-font"></i>
+						<input class="form-control placeholder-no-fix" type="text" placeholder="姓名" name="fullname" /> </div>
+				</div>
+				<div class="form-group">
+					<label class="control-label visible-ie8 visible-ie9">身份证号</label>
+					<div class="input-icon">
+						<i class="fa fa-credit-card"></i>
+						<input class="form-control placeholder-no-fix" type="text" placeholder="身份证号" name="IDCardNum" id="IDCardNum" /> </div>
+				</div>
+				<span id="IDCardNum-error"></span>
+				<div class="form-group">
+					<label class="control-label visible-ie8 visible-ie9">手机号</label>
+					<div class="input-icon">
+						<i class="fa fa-mobile-phone"></i>
+						<input class="form-control placeholder-no-fix" type="text" placeholder="手机号" name="phoneNum" id="phone_num" /> </div>
+					<span id="usernameInput-error"></span>
+
+				</div>
+				<div class="row">
+					<div class="form-group col-md-8 col-sm-12">
+						<label class="control-label visible-ie8 visible-ie9">验证码</label>
+						<div class="input-icon">
+							<i class="fa fa-check-square-o"></i>
+							<input class="form-control placeholder-no-fix" type="text" placeholder="验证码" name="VerificationNum" id="VerificationNum"
+							/>
+						</div>
+					</div>
+					<div class="form-group col-md-4 col-sm-12">
+						<input type="button" id="GetVerificationbtn" class="btn green" value="获取验证码 " />
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-md-6 form-group">
+						<label class="control-label visible-ie8 visible-ie9">密码</label>
+						<div class="input-icon">
+							<i class="fa fa-lock"></i>
+							<input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="密码"
+							name="password" /> </div>
+					</div>
+					<div class="form-group col-md-6">
+						<label class="control-label visible-ie8 visible-ie9">确认密码</label>
+						<div class="controls">
+							<div class="input-icon">
+								<i class="fa fa-check"></i>
+								<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="确认密码" name="rpassword" /> </div>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="mt-checkbox mt-checkbox-outline">
+						<input type="checkbox" name="tnc" value="1000" /> 我同意
+						<a href="javascript:;">服务条款 </a>
+						<span></span>
+					</label>
+					<div id="register_tnc_error"> </div>
+				</div>
+				<div class="form-actions">
+					<button id="register-back-btn" type="button" class="btn red"> 返回 </button>
+					<button type="submit" id="register-submit-btn" class="btn green pull-right"> 注册 </button>
+				</div>
+			</form>
+		</div>
+		<div class="copyright"> 2017 &copy; 杭州健培科技有限公司 </div>
+		<!--[if lt IE 9]>
+				<script src="<?=base_url()?>assets/global/plugins/respond.min.js"></script>
+				<script src="<?=base_url()?>assets/global/plugins/excanvas.min.js"></script>
+		<![endif]-->
+
+		<script src="<?=base_url()?>assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+		<script src="<?=base_url()?>assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+		<script src="<?=base_url()?>assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+		<script src="<?=base_url()?>assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+		<script src="<?=base_url()?>assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+		<script src="<?=base_url()?>assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+		<script src="<?=base_url()?>assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+		<script src="<?=base_url()?>assets/global/scripts/jquery-confirm.min.js" type="text/javascript"></script>
+		<script src="<?=base_url()?>assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+		<script src="<?=base_url()?>assets/global/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+		<script src="<?=base_url()?>assets/pages/scripts/login-4.min.js" type="text/javascript"></script>
+	</body>
 </html>
+<script type="text/javascript">
+	var base_url = '<?=base_url()?>';
+	$(function () {
+		$('#GetVerificationbtn').click(function () {
+			var InterValObj; //timer变量，控制时间
+			var count = 70; //间隔函数，1秒执行
+			var curCount; //当前剩余秒数
+			curCount = count;
+			var phone_num = $('#phone_num').val();
+			if (phone_num == '') {
+				$.alert({
+					title: '报告!',
+					content: '请正确的输入手机号码',
+					icon: 'fa fa-warning',
+					columnClass: 'small',
+					theme: "material",
+					buttons: {
+						ok: function () {
+							return true;
+
+						}
+					}
+				});
+
+			}
+			var base_url = "<?=base_url();?>";
+			var url = base_url + "login/send_sms/" + phone_num;
+			$.ajax({url: url, success: function(result){
+				console.log(result);
+				if (!result.response_code) {
+					$.alert({
+						title: '报告!',
+						content: '发送失败. 请正确的输入手机号码， 再发送',
+						icon: 'fa fa-warning',
+						columnClass: 'small',
+						theme: "material",
+						buttons: {
+							ok: function () {
+								return true;
+							}
+						}
+					});
+				} else {
+					var time = 70;
+					function timeCountDown() {
+						if (time == 0) {
+							clearInterval(timer);
+							$("#GetVerificationbtn").removeAttr("disabled"); //启用按钮
+							$("#GetVerificationbtn").val("重新发送");
+							return true;
+						}
+						$('#GetVerificationbtn').val(time + "秒后重试");
+						time--;
+						return false;
+					}
+					$("#GetVerificationbtn").attr("disabled", "true");
+					timeCountDown();
+					var timer = setInterval(timeCountDown, 1000);
+					$.alert({
+						title: '标示!',
+						icon: 'fa fa-check',
+						columnClass: 'small',
+						content: '已发送。。。',
+						buttons: {
+							ok: function () {
+								return true;
+							}
+						}
+					});
+				}
+	    }});
+		});
+
+		$('#GetVerificationForgetbtn').click(function () {
+			var InterValObj; //timer变量，控制时间
+			var count = 70; //间隔函数，1秒执行
+			var curCount; //当前剩余秒数
+			curCount = count;
+			var phone_num = $('#fusername').val();
+			if (phone_num == '') {
+				$.alert({
+					title: '报告!',
+					content: '请正确的输入手机号码',
+					icon: 'fa fa-warning',
+					columnClass: 'small',
+					theme: "material",
+					buttons: {
+						ok: function () {
+							return true;
+						}
+					}
+				});
+
+			}
+			var base_url = "<?=base_url();?>";
+			var url = base_url + "login/send_sms/" + phone_num;
+			$.post(url, function (result) {
+				console.log(result);
+				if (!result.response_code) {
+					$.alert({
+						title: '报告!',
+						content: '发送失败. 请正确的输入手机号码， 再发送',
+						icon: 'fa fa-warning',
+						columnClass: 'small',
+						theme: "material",
+						buttons: {
+							ok: function () {
+								return true;
+							}
+						}
+					});
+				} else {
+					var time = 70;
+					function timeCountDown() {
+						if (time == 0) {
+							clearInterval(timer);
+							$("#GetVerificationForgetbtn").removeAttr("disabled"); //启用按钮
+							$("#GetVerificationForgetbtn").val("重新发送");
+							return true;
+						}
+						$('#GetVerificationForgetbtn').val(time + "秒后重试");
+						time--;
+						return false;
+					}
+					$("#GetVerificationForgetbtn").attr("disabled", "true");
+					timeCountDown();
+					var timer = setInterval(timeCountDown, 1000);
+					$.alert({
+						title: '标示!',
+						icon: 'fa fa-check',
+						columnClass: 'small',
+						content: '已发送。。。',
+						buttons: {
+							ok: function () {
+								return true;
+							}
+						}
+					});
+				}
+			})
+		});
+
+
+		$('#ChangePassword_btn').click(function () {
+			var strURL = base_url + 'login/forgetPassword';
+			var formData = $('#forgetPassword').serialize();
+			$.ajax({
+				dataType: "json",
+				url: strURL,
+				type: "post",
+				data: formData,
+				success: function (response) {
+					if(response.response_code){
+						$.alert({
+							title: '报告!',
+							content: response.message,
+							icon: 'fa fa-warning',
+							columnClass: 'small',
+							theme: "material",
+							buttons: {
+								ok: function () {
+									location.reload();
+								}
+							}
+						});
+
+					}else{
+						$.alert({
+							title: '警告!',
+							content: response.message,
+							icon: 'fa fa-warning',
+							columnClass: 'small',
+							theme: "material",
+							buttons: {
+								ok: function () {
+									return true;
+								}
+							}
+						});
+					}
+				}
+			});
+		});
+
+		$('#IDCardNum').change(function () {
+			var strURL = base_url + 'login/checkDuplicationIDCard/' + this.value;
+			$.ajax({
+				dataType: "json",
+				url: strURL,
+				success: function (response) {
+					if (response.result == null) {
+						$('#IDCardNum-error').html(response.result);
+						$('#register-submit-btn').removeAttr('disabled');
+					} else {
+						$('#IDCardNum-error').html(response.result);
+						$('#register-submit-btn').attr('disabled', 'true');
+					}
+				}
+			});
+		});
+
+		$('#phone_num').change(function () {
+			var strURL = base_url + 'login/checkDuplicationUser/' + this.value;
+			$.ajax({
+				dataType: "json",
+				url: strURL,
+				success: function (response) {
+					if (response != null) {
+						$('#usernameInput-error').html(response.result);
+						$('#register-submit-btn').removeAttr('disabled');
+					} else {
+						$('#usernameInput-error').html("");
+						$('#register-submit-btn').attr('disabled', 'true');
+					}
+				}
+			});
+
+
+		})
+
+	});
+
+	function registerPatient() {
+		var formData = $('#register_form').serialize();
+		var strUrl = base_url + 'login/registerPatient';
+		$.ajax({
+			dataType: "json",
+			type: "post",
+			url: strUrl,
+			data: formData,
+			success: function (response) {
+				if (response.response_cod) {
+					$.alert({
+						title: '成功!',
+						columnClass: 'small',
+						content: '已成功注册了！.',
+						theme: "material",
+						buttons: {
+							ok: function () {
+								window.location.reload();
+							}
+						}
+					});
+				} else {
+					$.alert({
+						title: '报告!',
+						content: response.message,
+						icon: 'fa fa-warning',
+						columnClass: 'small',
+						theme: "material",
+						buttons: {
+							ok: function () {
+
+							}
+						}
+					});
+				}
+			}
+		});
+	}
+
+</script>

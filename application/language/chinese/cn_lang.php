@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) {
-    exit('No direct script access allowed');
+	exit('No direct script access allowed');
 }
 
 // General
@@ -24,13 +24,13 @@ $lang['patient_type'] = "病人类型";
 $lang['checkup_info'] = "检查信息";
 $lang['patient_num'] = "病人编号";
 $lang['pinyin'] = "拼音";
-$lang['req_doctor'] = "申请医生";
+$lang['req_doctor'] = "医院申请医生";
 $lang['req_field'] = "申请部门";
 $lang['hos_num'] = "住院号";
 $lang['depart_num'] = "病区";
 $lang['bed_num'] = "床号";
 $lang['cost_type'] = "收费类型";
-$lang['clinical_diagnosis'] = "临床诊断";
+$lang['clinical_diagnosis'] = "影像诊断";
 //other info
 $lang['other_info'] = "其他信息";
 $lang['health_insurance_num'] = "医保号码";
@@ -62,13 +62,13 @@ $lang['undeliberated_report'] = "未审核报告";
 $lang['deliberated_report'] = "审核报告";
 $lang['remote_contact'] = "远程咨询";
 $lang['contact_start'] = "发起咨询";
-$lang['my_contact'] = "我的咨询";
+$lang['my_contact'] = "远程咨询";
 $lang['input_contact_info'] = "录入咨询信息";
 $lang['select_export'] = "选择咨询专家";
 $lang['submit_contact'] = "提交咨询";
 $lang['next'] = "下一步";
 $lang['prev'] = "上一步";
-$lang['req_doctor_name'] = "申请医生";
+$lang['req_doctor_name'] = "医院申请医生";
 $lang['req_hospital'] = "申请医院";
 $lang['select_export'] = "选择咨询专家";
 $lang['medical_union'] = "医联体";
@@ -104,7 +104,7 @@ $lang['equipment_type'] = "设备类型";
 $lang['checkup_part'] = "检查部位";
 $lang['dicom_view'] = "调图";
 $lang['impression'] = "印象";
-$lang['image_expression'] = "影像学表现";
+$lang['image_expression'] = "影像所见";
 $lang['clinic_hos'] = "住院号/门诊号";
 $lang['patient_source'] = "病人来源";
 $lang['equipment_type'] = "设备类型";
@@ -139,4 +139,5 @@ $lang['checkmg'] = "检查项目管理";
 $lang['image_degree'] = "影像评价";
 $lang['report_module'] = "报告模块";
 $lang['equipmentmg'] = "设备管理";
-$lang['usermg'] = "用户管理";
+$lang['usermg'] = "操作员";
+$lang['hospital'] = "医院管理";

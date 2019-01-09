@@ -6,22 +6,24 @@
  * Author: Zaman
  */
 
-class MY_Model extends CI_Model {
-
+class MY_Model extends CI_Model
+{
     protected $_table_name = '';
     protected $_primary_key = 'id';
     protected $_primary_filter = 'intval';
     protected $_order_by = '';
     public $rules = array();
-    protected $_timestamps = FALSE;
+    protected $_timestamps = false;
 
-    function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
     // CURD FUNCTION
 
-    public function array_from_post($fields) {
+    public function array_from_post($fields)
+    {
         $data = array();
         foreach ($fields as $field) {
             $data[$field] = $this->input->post($field);
@@ -29,7 +31,8 @@ class MY_Model extends CI_Model {
         return $data;
     }
 
-    public function array_from_get($fields) {
+    public function array_from_get($fields)
+    {
         $data = array();
         foreach ($fields as $field) {
             $data[$field] = $this->input->get($field);
@@ -37,51 +40,53 @@ class MY_Model extends CI_Model {
         return $data;
     }
 
-    public function array_from_post_remove_null($fields) {
+    public function array_from_post_remove_null($fields)
+    {
         $data = array();
         foreach ($fields as $field) {
-              $data[$field] = $this->input->post($field);          
+            $data[$field] = $this->input->post($field);
         }
         return $data;
     }
 
-    public function get($id = NULL, $single = FALSE) {
-
-        if ($id != NULL) {
+    public function get($id = null, $single = false)
+    {
+        if ($id != null) {
             $filter = $this->_primary_filter;
             $id = $filter($id);
             $this->db->where($this->_primary_key, $id);
             $method = 'row';
-        } elseif ($single == TRUE) {
+        } elseif ($single == true) {
             $method = 'row';
         } else {
             $method = 'result';
         }
 
-        if (!count($this->db->ar_orderby)) {
-            $this->db->order_by($this->_order_by);
-        }
+        //if (!count($this->db->ar_orderby)) {
+        $this->db->order_by($this->_order_by);
+        // }
         return $this->db->get($this->_table_name)->$method();
     }
 
-    public function get_by($where, $single = FALSE) {
+    public function get_by($where = null, $single = false)
+    {
         $this->db->where($where);
-        return $this->get(NULL, $single);
+        return $this->get(null, $single);
     }
 
-    public function save($data, $id = NULL) {
+    public function save($data, $id = null)
+    {
 
         // Set timestamps
-        if ($this->_timestamps == TRUE) {
+        if ($this->_timestamps == true) {
             $now = date('Y-m-d H:i:s');
             $id || $data['created'] = $now;
             $data['modified'] = $now;
         }
-		/*print_r($data); echo $this->_table_name; echo $id; die();*/
+        /*print_r($data); echo $this->_table_name; echo $id; die();*/
         // Insert
-        if ($id === NULL) {
-
-            !isset($data[$this->_primary_key]) || $data[$this->_primary_key] = NULL;
+        if ($id === null) {
+            !isset($data[$this->_primary_key]) || $data[$this->_primary_key] = null;
 
             $this->db->set($data);
             $this->db->insert($this->_table_name);
@@ -99,12 +104,13 @@ class MY_Model extends CI_Model {
         return $id;
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         $filter = $this->_primary_filter;
         $id = $filter($id);
 
         if (!$id) {
-            return FALSE;
+            return false;
         }
         $this->db->where($this->_primary_key, $id);
         $this->db->limit(1);
@@ -114,13 +120,14 @@ class MY_Model extends CI_Model {
     /**
      * Delete Multiple rows
      */
-    public function delete_multiple($where) {
+    public function delete_multiple($where)
+    {
         $this->db->where($where);
         $this->db->delete($this->_table_name);
     }
 
-    function uploadImage($field) {
-
+    public function uploadImage($field)
+    {
         $config['upload_path'] = 'img/uploads/';
         $config['allowed_types'] = 'gif|jpg|jpeg|png';
         $config['max_size'] = '2024';
@@ -134,8 +141,8 @@ class MY_Model extends CI_Model {
             $type = "error";
             $message = $error;
             set_message($type, $message);
-            return FALSE;
-            // uploading failed. $error will holds the errors.
+            return false;
+        // uploading failed. $error will holds the errors.
         } else {
             $fdata = $this->upload->data();
             $img_data ['path'] = $config['upload_path'] . $fdata['file_name'];
@@ -145,7 +152,8 @@ class MY_Model extends CI_Model {
         }
     }
 
-    function uploadFile($field) {
+    public function uploadFile($field)
+    {
         $config['upload_path'] = 'img/uploads/';
         $config['allowed_types'] = 'pdf|docx|doc';
         $config['max_size'] = '2048';
@@ -157,8 +165,8 @@ class MY_Model extends CI_Model {
             $type = "error";
             $message = $error;
             set_message($type, $message);
-            return FALSE;
-            // uploading failed. $error will holds the errors.
+            return false;
+        // uploading failed. $error will holds the errors.
         } else {
             $fdata = $this->upload->data();
             $file_data ['fileName'] = $fdata['file_name'];
@@ -169,7 +177,8 @@ class MY_Model extends CI_Model {
         }
     }
 
-    function uploadAllType($field) {
+    public function uploadAllType($field)
+    {
         $config['upload_path'] = 'img/uploads/';
         $config['allowed_types'] = '*';
         $config['max_size'] = '2048';
@@ -181,8 +190,8 @@ class MY_Model extends CI_Model {
             $type = "error";
             $message = $error;
             set_message($type, $message);
-            return FALSE;
-            // uploading failed. $error will holds the errors.
+            return false;
+        // uploading failed. $error will holds the errors.
         } else {
             $fdata = $this->upload->data();
             $file_data ['fileName'] = $fdata['file_name'];
@@ -193,7 +202,8 @@ class MY_Model extends CI_Model {
         }
     }
 
-    public function check_by($where, $tbl_name) {
+    public function check_by($where, $tbl_name)
+    {
         $this->db->select('*');
         $this->db->from($tbl_name);
         $this->db->where($where);
@@ -201,8 +211,9 @@ class MY_Model extends CI_Model {
         $result = $query_result->row();
         return $result;
     }
-    public function check_update($table, $where, $id = Null) {
-        $this->db->select('*', FALSE);
+    public function check_update($table, $where, $id = null)
+    {
+        $this->db->select('*', false);
         $this->db->from($table);
         if ($id != null) {
             $this->db->where($id);
@@ -215,12 +226,14 @@ class MY_Model extends CI_Model {
 
     // set actiion setting
 
-    public function set_action($where, $value, $tbl_name) {
+    public function set_action($where, $value, $tbl_name)
+    {
         $this->db->set($value);
         $this->db->where($where);
         return $this->db->update($tbl_name);
     }
-    public function all_form_language() {
+    public function all_form_language()
+    {
         $this->db->select('tbl_form.*');
         $this->db->from('tbl_form');
         $this->db->order_by('form_id');
@@ -228,20 +241,21 @@ class MY_Model extends CI_Model {
         $result = $query_result->result();
         return $result;
     }
-    public function all_menu_language() {
+    public function all_menu_language()
+    {
         $this->db->select('tbl_menu.*');
         $this->db->from('tbl_menu');
         $query_result = $this->db->get();
         $result = $query_result->result();
         return $result;
     }
-    public function all_formbody_language() {
+    public function all_formbody_language()
+    {
         $this->db->select('tbl_form_body.*');
         $this->db->from('tbl_form_body');
-        $this->db->order_by('form_id','ASC');
+        $this->db->order_by('form_id', 'ASC');
         $query_result = $this->db->get();
         $result = $query_result->result();
         return $result;
     }
-
 }

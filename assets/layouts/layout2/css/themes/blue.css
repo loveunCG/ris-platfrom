@@ -117,7 +117,7 @@
 /* Page sidebar */
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover,
 .page-sidebar {
-  background-color: #26344B;
+  background-color: rgb(51, 153, 153);
   /* Default sidebar */ }
   .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu,
   .page-sidebar .page-sidebar-menu {
@@ -269,7 +269,7 @@
     background-color: #b8bfba !important;
     /* Page container */ }
     .page-boxed .page-container {
-      background-color: #26344B; }
+      background-color: rgb(51, 153, 153); }
     .page-boxed.page-sidebar-reversed .page-container {
       border-left: 0; }
     .page-boxed.page-sidebar-fixed .page-container {
@@ -319,7 +319,7 @@
     Boby
     ****/
 body {
-  background-color: #26344B; }
+  background-color: rgb(51, 153, 153); }
 
 body.page-boxed {
   background-color: #C0C6C2; }

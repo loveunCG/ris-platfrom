@@ -468,7 +468,7 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 		mode : 'calendar',
 		format: 'yyyy-mm-dd',
 		theme: 'blue',
-		readOnly: true
+		readOnly: false
 	};
 
 	$.fn.dcalendar.Constructor = DCalendar;

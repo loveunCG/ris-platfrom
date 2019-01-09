@@ -69,7 +69,7 @@
 
                                                                 <?php
                                                                             if ($report_table->patient_gender == '0') {
-                                                                                echo '<button type="button" class="btn btn-circle btn-icon-only yellow"><span aria-hidden="true" class="icon-symbol-male"></span></button>';
+                                                                                echo '<button type="button" class="btn btn-circle btn-icon-only blue"><span aria-hidden="true" class="icon-symbol-male"></span></button>';
                                                                             } else {
                                                                                 echo '<button type="button" class="btn btn-circle btn-icon-only red"><span aria-hidden="true" class="icon-symbol-female"></span></button>';
                                                                             }
@@ -163,8 +163,8 @@
                                     <div class="portlet portlet-sortable  green-sharp box">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                <i class=" icon-layers font-green"></i>
-                                                <span class="caption-subject font-green bold uppercase"><?=$this->lang->line('positive_status')?> </span>
+                                                <i class=" icon-layers font-white"></i>
+                                                <span class="caption-subject font-white bold uppercase"><?=$this->lang->line('positive_status')?> </span>
                                             </div>
                                         </div>
                                         <div class="portlet-body">
@@ -241,7 +241,7 @@
                             </div>
                             <div class="row col-md-12">
 
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="portlet portlet-sortable  green-sharp box">
                                         <div class="portlet-title">
                                             <div class="caption">
@@ -259,23 +259,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="col-md-8">
+                               <div class="col-md-6">
                                     <div class="portlet green-sharp box portlet-sortable ">
                                         <div class="portlet-title">
                                             <div class="caption">
-                                                <i class="fa fa-cogs"></i> 临床诊断
+                                                <i class="fa fa-cogs"></i> 审核内容
                                             </div>
                                         </div>
                                         <div class="portlet-body">
                                             <div class="scroller" style="height:200px" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
-
                                                 <p>
-                                                    <?=$report_table->clinical_diagnosis?>
+                                                    <?=$report_table->deliberation_content?>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
                             </div>
                             <div class="row col-md-12">
                             <div class="well bg-white">
@@ -289,20 +288,3 @@
         </div>
     </div>
 </div>
-<script>
-    function set_report_module(val) {
-        $('#report_module').val(val);
-
-    }
-
-    function nopass_deli() {
-        booking_id = $('#booking_id').val();
-        var base_url = '<?=base_url()?>';
-        var strURL = base_url + "report/nopass_report/" + booking_id;
-        $(location).attr('href', strURL);
-    }
-
-    function submit_report() {
-        $("#report_submit").submit();
-    }
-</script>
