@@ -1,0 +1,57 @@
+{
+    "name": "API",
+    "version": "0.1.0",
+    "description": "An In memory todo for Logged in and not Logged in users",
+    "main": "server.js",
+    "scripts": {
+        "start": "nodemon server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/auth0/in-memory-todo.git"
+    },
+    "keywords": [
+        "todo",
+        "in",
+        "memory",
+        "jwt",
+        "auth0"
+    ],
+    "author": "Martin Gontovnikas",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/auth0/in-memory-todo/issues"
+    },
+    "homepage": "https://github.com/auth0/in-memory-todo",
+    "dependencies": {
+        "@alicloud/sms-sdk": "^1.0.8",
+        "axios": "^0.17.1",
+        "body-parser": "^1.18.2",
+        "compression": "^1.7.2",
+        "cors": "^2.8.4",
+        "dotenv": "^4.0.0",
+        "errorhandler": "^1.5.0",
+        "express": "^4.16.2",
+        "express-fileupload": "^0.3.0",
+        "express-jwt": "^5.3.1",
+        "express-session": "^1.15.6",
+        "express-validator": "^5.0.3",
+        "foreach": "^2.0.5",
+        "formidable": "^1.2.0",
+        "got": "^8.3.0",
+        "import-export": "^1.0.1",
+        "js-md5": "^0.7.3",
+        "knex": "^0.14.4",
+        "lodash": "^4.17.5",
+        "moment": "^2.21.0",
+        "morgan": "^1.9.0",
+        "mysql": "^2.15.0",
+        "node-filelist": "^1.0.0",
+        "nodemon": "^1.17.1",
+        "promise": "^8.0.1",
+        "rmdir": "^1.2.0",
+        "sequelize": "^4.36.0",
+        "xml2json": "^0.11.0"
+    }
+}

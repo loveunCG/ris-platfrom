@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><dicom>
+<attr tag="00020001" vr="OB" len="2">00\01</attr>
+<attr tag="00020002" vr="UI" len="24">1.2.840.10008.3.1.2.3.3</attr>
+<attr tag="00020003" vr="UI" len="56">1.2.826.0.1.3680043.2.1545.1.2.1.7.20171228.233833.734.4</attr>
+<attr tag="00020010" vr="UI" len="20">1.2.840.10008.1.2.1</attr>
+<attr tag="00020012" vr="UI" len="16">1.2.40.0.13.1.1</attr>
+<attr tag="00020013" vr="SH" len="12">dcm4che-2.0</attr>
+<attr tag="00080005" vr="CS" len="10">ISO_IR 100</attr>
+<attr tag="00080060" vr="CS" len="2">CR</attr>
+<attr tag="00081032" vr="SQ" len="0"/>
+<attr tag="00081120" vr="SQ" len="0"/>
+<attr tag="00100010" vr="PN" len="14">Patients^Name</attr>
+<attr tag="00100020" vr="LO" len="10">PatientID</attr>
+<attr tag="00100021" vr="LO" len="22">Issuer of Patient ID1</attr>
+<attr tag="00100030" vr="DA" len="8">20000101</attr>
+<attr tag="00100040" vr="CS" len="2">M</attr>
+<attr tag="0018115E" vr="DS" len="0"/>
+<attr tag="00200010" vr="SH" len="14">Procedure ID1</attr>
+<attr tag="00400241" vr="AE" len="4">DVT</attr>
+<attr tag="00400242" vr="SH" len="0"/>
+<attr tag="00400243" vr="SH" len="0"/>
+<attr tag="00400244" vr="DA" len="8">20171228</attr>
+<attr tag="00400245" vr="TM" len="6">224149</attr>
+<attr tag="00400250" vr="DA" len="0"/>
+<attr tag="00400251" vr="TM" len="0"/>
+<attr tag="00400252" vr="CS" len="12">IN PROGRESS</attr>
+<attr tag="00400253" vr="SH" len="6">1605.0</attr>
+<attr tag="00400254" vr="LO" len="0"/>
+<attr tag="00400255" vr="LO" len="0"/>
+<attr tag="00400260" vr="SQ" len="0"/>
+<attr tag="00400270" vr="SQ" len="-1">
+<item>
+<attr tag="00080050" vr="SH" len="6">123456</attr>
+<attr tag="00081110" vr="SQ" len="-1">
+<item>
+<attr tag="00081150" vr="UI" len="24">1.2.840.10008.3.1.2.3.1</attr>
+<attr tag="00081155" vr="UI" len="36">1.2.840.10008.5.1.4.1.1.9.1.2.1.1.1</attr>
+</item>
+</attr>
+<attr tag="0020000D" vr="UI" len="38">100.118.116.2005.2.1.1143729853.921.5</attr>
+<attr tag="00321060" vr="LO" len="32">Requested Procedure Description</attr>
+<attr tag="00400007" vr="LO" len="36">Scheduled Procedure Step Description</attr>
+<attr tag="00400008" vr="SQ" len="0"/>
+<attr tag="00400009" vr="SH" len="6">SPSID</attr>
+<attr tag="00401001" vr="SH" len="4">RPID</attr>
+</item>
+</attr>
+<attr tag="00400281" vr="SQ" len="0"/>
+<attr tag="00400301" vr="US" len="0"/>
+<attr tag="0040030E" vr="SQ" len="0"/>
+<attr tag="00400310" vr="ST" len="0"/>
+<attr tag="00400321" vr="SQ" len="0"/>
+<attr tag="00400340" vr="SQ" len="0"/>
+</dicom>

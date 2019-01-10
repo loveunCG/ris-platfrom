@@ -1,0 +1,8 @@
+{
+  "socketURL": "/",
+  "socketMessageEvent": "RTCMultiConnection-Message",
+  "socketCustomEvent": "RTCMultiConnection-Custom-Message",
+  "port": "5003",
+  "enableLogs": "true",
+  "autoRebootServerOnFailure": "true"
+}
