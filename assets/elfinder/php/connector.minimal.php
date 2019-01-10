@@ -98,7 +98,7 @@ $opts = array(
 		// Items volume
 		array(
 			'driver'        => 'LocalFileSystem',           // driver for accessing file system (REQUIRED)
-			//'path'          => '../../uploads/',                 // path to files (REQUIRED)
+			'path'          => '../../uploads/',                 // path to files (REQUIRED)
 			'URL'           => dirname($_SERVER['PHP_SELF']) . '/../../uploads', // URL to files (REQUIRED)
 			'trashHash'     => 't1_Lw',                     // elFinder's hash of trash folder
 			'winHashFix'    => DIRECTORY_SEPARATOR !== '/', // to make hash same to Linux one on windows too
@@ -121,19 +121,8 @@ $opts = array(
 		)
 	)
 );
-$hospital_name = $_GET['dir_name'];
-
-//if(file_exists('../../'.$_GET['dir_name'].'/MR-DOC')){
-//    $opts['roots'][0]['path'] = '../../'.$_GET['dir_name'].'/MR-DOC';
-//    //mkdir('../../'.$_GET['dir_name'].'/MR-DO');
-//}
-//else{
-//
-//}
-
-
 
 // run elFinder
-$connector = new elFinderConnector(new elFinder($opts,$hospital_name));
+$connector = new elFinderConnector(new elFinder($opts));
 $connector->run();
 

@@ -1,1 +1,0 @@
-Java -jar H:\work_data\PACS\DCM\dcm4chee\bin\editmwl.jar  -r  RP-76104/SPS-1101104

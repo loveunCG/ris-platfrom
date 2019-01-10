@@ -1,5 +1,5 @@
 <?php
-require './MysqliDb.php';
+
 /**
  * elFinder - file manager for web.
  * Core class.
@@ -10,8 +10,7 @@ require './MysqliDb.php';
  * @author Alexey Sukhotin
  **/
 class elFinder {
-
-    protected $db;
+	
 	/**
 	 * API version number
 	 *
@@ -391,30 +390,7 @@ class elFinder {
 	 * @param  array  elFinder and roots configurations
 	 * @author Dmitry (dio) Levashov
 	 */
-	public function __construct($opts,$hospital_name) {
-	    //등록부설정
-	    $this->db = new MysqliDbInstance('localhost','root','','pacs/ris');
-        $this->db->where('hospital_name',"{$hospital_name}");
-        $result = $this->db->get('tbl_hospital');
-        if($result[0]['hospital_name'] == $result[0]['hospital_class']){
-            if(!file_exists('../../uploads/'.$result[0]['hospital_class'])){
-                mkdir('../../uploads/'.$result[0]['hospital_class']);
-            }
-            $opts['roots'][0]['path'] ='../../uploads/'.$result[0]['hospital_class'] ;
-        }
-        else{
-            if(!file_exists('../../uploads/'.$result[0]['hospital_class'])){
-                mkdir('../../uploads/'.$result[0]['hospital_class']);
-                mkdir('../../uploads/'.$result[0]['hospital_class'].'/'.$result[0]['hospital_name']);
-            }
-            else{
-                if(!file_exists('../../uploads/'.$result[0]['hospital_class'].'/'.$result[0]['hospital_name'])){
-                    mkdir('../../uploads/'.$result[0]['hospital_class'].'/'.$result[0]['hospital_name']);
-                }
-            }
-            $opts['roots'][0]['path'] = '../../uploads/'.$result[0]['hospital_class'].'/'.$result[0]['hospital_name'];
-            //$data = $result->result();
-        }
+	public function __construct($opts) {
 		// define accept constant of server commands path
 		! defined('ELFINDER_TAR_PATH')      && define('ELFINDER_TAR_PATH',      'tar');
 		! defined('ELFINDER_GZIP_PATH')     && define('ELFINDER_GZIP_PATH',     'gzip');

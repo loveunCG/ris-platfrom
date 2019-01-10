@@ -1768,7 +1768,7 @@ Custom color buttons
 
 .btn.blue-madison:not(.btn-outline) {
   color: #FFFFFF;
-  background-color: rgb(51, 153, 153);
+  background-color: #578ebe;
   border-color: #578ebe; }
   .btn.blue-madison:not(.btn-outline):focus, .btn.blue-madison:not(.btn-outline).focus {
     color: #FFFFFF;
@@ -1797,7 +1797,7 @@ Custom color buttons
   fieldset[disabled] .btn.blue-madison:not(.btn-outline):hover,
   fieldset[disabled] .btn.blue-madison:not(.btn-outline):focus,
   fieldset[disabled] .btn.blue-madison:not(.btn-outline).focus {
-    background-color: rgb(51, 153, 153);
+    background-color: #578ebe;
     border-color: #578ebe; }
   .btn.blue-madison:not(.btn-outline) .badge {
     color: #578ebe;
@@ -1810,7 +1810,7 @@ Custom color buttons
   .btn.btn-outline.blue-madison:hover, .btn.btn-outline.blue-madison:active, .btn.btn-outline.blue-madison:active:hover, .btn.btn-outline.blue-madison:active:focus, .btn.btn-outline.blue-madison:focus, .btn.btn-outline.blue-madison.active {
     border-color: #578ebe;
     color: #FFFFFF;
-    background-color: rgb(51, 153, 153); }
+    background-color: #578ebe; }
 
 .btn.blue-madison-stripe {
   border-left: 4px solid #578ebe !important; }
@@ -7308,7 +7308,7 @@ Custom colored portlets
 
 .portlet > .portlet-body.blue-madison,
 .portlet.blue-madison {
-  background-color: rgb(51, 153, 153); }
+  background-color: #578ebe; }
 
 .portlet.solid.blue-madison > .portlet-title,
 .portlet.solid.blue-madison > .portlet-body {
@@ -7342,7 +7342,7 @@ Custom colored portlets
   border: 1px solid #7ca7cc;
   border-top: 0; }
   .portlet.box.blue-madison > .portlet-title {
-    background-color: rgb(51, 153, 153); }
+    background-color: #578ebe; }
     .portlet.box.blue-madison > .portlet-title > .caption {
       color: #FFFFFF; }
       .portlet.box.blue-madison > .portlet-title > .caption > i {
@@ -10452,7 +10452,7 @@ Dashboard Stats
     background-color: #258fd7; }
 
 .dashboard-stat.blue-madison {
-  background-color: rgb(51, 153, 153); }
+  background-color: #578ebe; }
   .dashboard-stat.blue-madison.dashboard-stat-light:hover {
     background-color: #4884b8; }
   .dashboard-stat.blue-madison .visual > i {
@@ -15347,7 +15347,7 @@ Tasks Widget
     background: #FFFFFF; }
 
 .mt-element-list .list-default.mt-list-head.blue-madison {
-  background-color: rgb(51, 153, 153);
+  background-color: #578ebe;
   color: #FFFFFF; }
   .mt-element-list .list-default.mt-list-head.blue-madison .badge {
     background-color: #7ca7cc;
@@ -15360,11 +15360,11 @@ Tasks Widget
     color: white; }
 
 .mt-element-list .list-todo.mt-list-head.blue-madison {
-  background-color: rgb(51, 153, 153);
+  background-color: #578ebe;
   color: #FFFFFF; }
 
 .mt-element-list .list-todo .list-count.blue-madison {
-  background-color: rgb(51, 153, 153);
+  background-color: #578ebe;
   color: #FFFFFF; }
   .mt-element-list .list-todo .list-count.blue-madison:hover {
     background-color: #4682b5; }
