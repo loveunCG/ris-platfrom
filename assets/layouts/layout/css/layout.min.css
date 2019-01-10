@@ -9,7 +9,7 @@
 
 @media print {
   body {
-    background-color: #525E64 !important
+    background-color: rgb(51, 153, 153) !important
   }
   .hidden-print, .page-bar, .page-footer, .page-quick-sidebar-wrapper, .page-sidebar-wrapper, .theme-panel {
     display: none
